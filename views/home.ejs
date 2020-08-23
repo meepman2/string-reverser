@@ -1,0 +1,22 @@
+
+<%- include("header"); -%>
+
+<div class="pageTitle">
+  <h1>Home</h1>
+</div>
+
+<div class="body">
+
+<h3>Reversed String</h3>
+
+  <div>
+    <% inputs.reArray.forEach(function(post) { %>
+    <ul>
+      <li><%=post%></li>
+    </ul>
+    <% }); %>
+  </div>
+
+</div>
+
+<%- include("footer"); -%>
