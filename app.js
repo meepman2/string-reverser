@@ -15,7 +15,7 @@ app.use(express.static("public"));
  }
 
 app.get("/", function(req,res) {
-
+  console.log(inputs);
   res.render("home", {inputs: inputs});
 });
 
@@ -24,7 +24,12 @@ app.get("/reverse", function(req,res) {
   {
     const ray = req.query.word;
     const reverse = _.reverse(ray.split('')).join('');
-    inputs.reArray.push(reverse);
+    const len = reverse.length;
+    const item = {
+      length: len,
+      rev: reverse
+    }
+    inputs.reArray.push(item);
     res.redirect("/");
   }
   res.render("reverse");
@@ -33,11 +38,16 @@ app.get("/reverse", function(req,res) {
 app.post("/reverse", function(req,res) {
   const str = req.body.reverseString;
   const reverse = _.reverse(str.split('')).join('');
-  inputs.reArray.push(reverse);
+  const len = reverse.length;
+  console.log(len);
+  const item = {
+    length: len,
+    rev: reverse
+  }
+  inputs.reArray.push(item);
   res.redirect("/");
 
 });
-
 
 
 
