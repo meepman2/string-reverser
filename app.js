@@ -49,6 +49,10 @@ app.post("/reverse", function(req,res) {
 
 });
 
+app.post("/", function(req,res) {
+  inputs.reArray = [];
+  res.redirect("/");
+});
 
 
 app.listen(process.env.PORT || 3000, function(){ // dynamic or local host
